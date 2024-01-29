@@ -41,11 +41,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getCodeFromMessage(message: String?) {
-        val codePattern = Pattern.compile("(|^)\\d{6}")
-        val matcher = codePattern.matcher(message)
-        if (matcher.find()) {
-            binding.et.setText(matcher.group(0))
-        }
+//        val codePattern = Pattern.compile("(|^)\\d{6}")
+//        val matcher = codePattern.matcher(message)
+//        if (matcher.find()) {
+//            binding.et.setText(matcher.group(0))
+//        }
+//        binding.et.setText(message)
+        binding.et.setText(message?.take(5))
     }
 
     private fun registerBroadcastReceiver() {
