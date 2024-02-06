@@ -4,10 +4,12 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.vk.directop.myautofillexample.SmsBroadcastReceiver.SmsBroadcastReceiverListener
 import com.vk.directop.myautofillexample.databinding.ActivityMainBinding
+import io.sentry.Sentry
 import java.util.regex.Pattern
 
 const val REQ_USER_CONSENT = 200
@@ -23,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         startSmartUserConsent()
+
+        binding.btn.setOnClickListener {
+            Sentry.captureException(RuntimeException("This app uses Sentry! PV softUp :)"))
+            Log.d("TAG", "Pressed button")
+        }
     }
 
     private fun startSmartUserConsent() {

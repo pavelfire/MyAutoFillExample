@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("io.sentry.android.gradle") version "4.2.0"
 }
 
 android {
