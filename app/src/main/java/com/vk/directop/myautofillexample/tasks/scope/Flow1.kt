@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 //Flow1
 suspend fun performRequest(request: Int): String {
     delay(100)
-    if (request == 3) throw RuntimeException("*")
+    if (request == 3) throw RuntimeException("* exception catch $request")
     return "$request"
 }
 
